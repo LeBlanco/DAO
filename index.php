@@ -35,10 +35,19 @@ $aluno->insert();
 echo $aluno;
 */
 
-//Criando
-
+//Atualizando uma linha
+/*
 $usuario = new Usuario();
 $usuario->loadbyId(1);
-$usuario->update("Ford", "0000");
+$usuario->update("Leo", "0000");
 echo $usuario;
+*/
+
+//Deletando uma linha
+/*
+$usuario = new Usuario();
+$usuario->loadbyId(2);
+$usuario->delete();
+echo $usuario;
+*/
 ?>

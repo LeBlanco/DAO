@@ -120,6 +120,20 @@ class Usuario{
 				':ID'=>$this->getIdusuario()
 		));
 	}
+////////////////////////////////////////////////
+	public function delete(){
+
+		$sql = new Sql();
+
+		$sql->query("delete from tbusuario where idusuario = :ID", array(
+				':ID'=>$this->getIdusuario()
+		));
+
+		$this->setIdusuario(0);
+		$this->setLogin("");
+		$this->setSenha("");
+		$this->setDtcadastro(new DateTime());
+	}
 /////////////////////////////////////////////////
 	public function __construct($login = "", $senha = ""){
 
