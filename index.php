@@ -27,4 +27,10 @@ $usuario = new Usuario();
 $usuario->login("Vini","10504816");
 echo $usuario;
 */
+
+//Cria uma nova linha no Banco, completa com todas informação
+$aluno = new Usuario("aluno", "@alun0");
+$aluno->insert();
+echo $aluno;
+
 ?>
