@@ -96,17 +96,30 @@ class Usuario{
 
 	$sql = new Sql;
 
-	$results = $sql->select("CALL sp_usuario_insert(:LOGIN, :SENHA)", 
-							array(
-								':LOGIN'=>$this->getLogin(),
-								':SENHA'=>$this->getSenha()
-							)
-						);		
+	$results = $sql->select("CALL sp_usuario_insert(:LOGIN, :SENHA)", array(
+					':LOGIN'=>$this->getLogin(),
+					':SENHA'=>$this->getSenha()
+				)
+							);		
 
 	if(count($results) > 0){
 		$this->setData($results[0]);
 	}
 }
+////////////////////////////////////////////////
+	public function update($login, $senha){
+
+		$this->setLogin($login);
+		$this->setSenha($senha);
+
+		$sql = new Sql();
+
+		$sql->query("update tbusuario set login = :LOGIN, senha = :SENHA where idusuario = :ID", array(
+				':LOGIN'=>$this->getLogin(),
+				':SENHA'=>$this->getSenha(),
+				':ID'=>$this->getIdusuario()
+		));
+	}
 /////////////////////////////////////////////////
 	public function __construct($login = "", $senha = ""){
 

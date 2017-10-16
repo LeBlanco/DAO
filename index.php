@@ -29,8 +29,16 @@ echo $usuario;
 */
 
 //Cria uma nova linha no Banco, completa com todas informação
+/*
 $aluno = new Usuario("aluno", "@alun0");
 $aluno->insert();
 echo $aluno;
+*/
 
+//Criando
+
+$usuario = new Usuario();
+$usuario->loadbyId(1);
+$usuario->update("Ford", "0000");
+echo $usuario;
 ?>
